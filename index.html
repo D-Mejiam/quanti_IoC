@@ -713,7 +713,7 @@
             const allCommands = `${ipCommands}${domainCommands}${groupCommands}${blacklistCommands}`;
             
             navigator.clipboard.writeText(allCommands).then(() => {
-                const btn = event.target;
+                const btn = document.querySelector('.copy-all-btn');
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '✅ ¡Todos los Comandos Copiados!';
                 btn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
@@ -732,7 +732,8 @@
             const text = element.textContent;
             
             navigator.clipboard.writeText(text).then(() => {
-                const btn = event.target;
+                // Find the button that was clicked (next sibling of the pre element)
+                const btn = element.parentNode.querySelector('.copy-btn');
                 const originalText = btn.textContent;
                 btn.textContent = '✅ Copiado!';
                 btn.style.background = '#28a745';
